@@ -12,21 +12,21 @@
     <title>Frequently Asked Questions :: Erovia&#39;s QMK Corner</title>
 
     
-    <link href="/css/nucleus.css?1592141037" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1592141037" rel="stylesheet">
-    <link href="/css/hybrid.css?1592141037" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1592141037" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1592141037" rel="stylesheet">
-    <link href="/css/auto-complete.css?1592141037" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1592141037" rel="stylesheet">
-    <link href="/css/theme.css?1592141037" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1592141037" rel="stylesheet">
+    <link href="/css/nucleus.css?1592142318" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1592142318" rel="stylesheet">
+    <link href="/css/hybrid.css?1592142318" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1592142318" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1592142318" rel="stylesheet">
+    <link href="/css/auto-complete.css?1592142318" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1592142318" rel="stylesheet">
+    <link href="/css/theme.css?1592142318" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1592142318" rel="stylesheet">
     
-    <link href="/css/theme-erovia.css?1592141037" rel="stylesheet">
+    <link href="/css/theme-erovia.css?1592142318" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1592141037"></script>
+    <script src="/js/jquery-3.3.1.min.js?1592142318"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1592141037"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1592141037"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1592142318"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1592142318"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1592141037"></script>
+<script type="text/javascript" src="/js/search.js?1592142318"></script>
 
     
   </div>
@@ -338,7 +338,7 @@
 (All roads lead to <del>Rome</del> <a href="https://github.com/qmk/qmk_firmware/tree/master/users/drashna">drashna&rsquo;s userspace</a>.)</p>
 <hr>
 <h3 id="q-whats-the-relationship-between-via-and-qmk">Q: What&rsquo;s the relationship between VIA and QMK?</h3>
-<p><strong>A</strong>: <a href="https://caniusevia.com">VIA</a> is a tool that let&rsquo;s you modify the keymap of your keyboard on the fly. The firmware on your keyboard will still be QMK.</p>
+<p><strong>A</strong>: <a href="https://caniusevia.com">VIA</a> is a tool that allows you modify the keymap of your keyboard on the fly. The firmware on your keyboard will still be QMK.</p>
 <hr>
 <h3 id="q-how-do-i-add-via-support-for-my-board">Q: How do I add VIA support for my board?</h3>
 <p><strong>A</strong>: If the board is already supported by QMK, the steps are the following:</p>
@@ -359,7 +359,7 @@
 <p><strong>A</strong>: Restart &ldquo;MinGW 64bit&rdquo; and run <code>qmk doctor</code>. If you still get errors ask for help.</p>
 <hr>
 <h3 id="q-qmk-configurator---where-is-the-keymapc">Q: QMK Configurator - where is the keymap.c?</h3>
-<p><strong>A</strong>: the Configurator no longer offers <code>keymap.c</code>, instead it provides a <code>keymap.json</code>. You have multiple posibilies with this file:</p>
+<p><strong>A</strong>: the Configurator no longer offers <code>keymap.c</code>, instead it provides a <code>keymap.json</code>. You have multiple possibilies with this file:</p>
 <ul>
 <li>convert it to <code>keymap.c</code></li>
 </ul>
@@ -375,8 +375,11 @@
 <h3 id="q-how-do-i-use-accented-characters-in-qmk-configurator">Q: How do I use accented characters in QMK Configurator?</h3>
 <p><strong>A</strong>: It&rsquo;s important to understand, that your keyboard does not send characters, but keycodes (actually <a href="https://en.wikipedia.org/wiki/Scancode">scancodes</a>, but for the sake of simplicity, let&rsquo;s say they are the same thing). What this keycodes will represent, depends on the locale settings of your OS.<br>
 Let&rsquo;s say you&rsquo;d like to type <code>ß</code>. The keycode for this letter in with German locale is the same is the <code>-</code>'s in the US English locale.<br>
-Since Configurator uses the latter&rsquo;s keycodes, if you assign <code>KC_MINS</code> to a key, it will output <code>ß</code> with your German locale.<br>
-<em>Tip</em>: Use the content of the <a href="https://github.com/qmk/qmk_firmware/tree/master/quantum/keymap_extras">extra keymaps</a> to find the necessary US English keycodes.</p>
+Since Configurator uses the latter&rsquo;s keycodes, if you assign <code>KC_MINS</code> to a key, it will output <code>ß</code> with your German locale.</p>
+
+<div class="notices tip" ><p>Use the content of the <a href="https://github.com/qmk/qmk_firmware/tree/master/quantum/keymap_extras">extra keymaps</a> to find the necessary US English keycodes.</p>
+</div>
+
 <hr>
 <h3 id="q-ive-flashed-the-wrong-firmware-and-my-keyboard-is-unresponsive-did-i-kill-it">Q: I&rsquo;ve flashed the wrong firmware and my keyboard is unresponsive. Did I kill it?</h3>
 <p><strong>A</strong>: Likely not. The bootloader should be intact on your keyboard, allowing you to flash the correct firmware. Resetting the board might be harder, though.<br>
@@ -387,7 +390,7 @@ Look for:</p>
 <li>if none of the above is an option, you can also short the RST and GND pins on your board&rsquo;s microcontroller (<em>not recommended</em>)</li>
 </ul>
 
-<div class="notices warning" ><p>Shorting the pins on the microcontroller is potentially <strong>dangerious</strong>. Use it only as a last resort.</p>
+<div class="notices warning" ><p>Shorting the pins on the microcontroller is potentially <strong>dangerous</strong>. Use it only as a last resort.</p>
 </div>
 
 
@@ -524,19 +527,19 @@ Look for:</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1592141037"></script>
-    <script src="/js/perfect-scrollbar.min.js?1592141037"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1592141037"></script>
-    <script src="/js/jquery.sticky.js?1592141037"></script>
-    <script src="/js/featherlight.min.js?1592141037"></script>
-    <script src="/js/highlight.pack.js?1592141037"></script>
+    <script src="/js/clipboard.min.js?1592142318"></script>
+    <script src="/js/perfect-scrollbar.min.js?1592142318"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1592142318"></script>
+    <script src="/js/jquery.sticky.js?1592142318"></script>
+    <script src="/js/featherlight.min.js?1592142318"></script>
+    <script src="/js/highlight.pack.js?1592142318"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1592141037"></script>
-    <script src="/js/learn.js?1592141037"></script>
-    <script src="/js/hugo-learn.js?1592141037"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1592142318"></script>
+    <script src="/js/learn.js?1592142318"></script>
+    <script src="/js/hugo-learn.js?1592142318"></script>
 
-    <link href="/mermaid/mermaid.css?1592141037" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1592141037"></script>
+    <link href="/mermaid/mermaid.css?1592142318" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1592142318"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
