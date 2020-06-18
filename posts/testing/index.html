@@ -12,21 +12,21 @@
     <title>Testing Pull Requests :: Erovia&#39;s QMK Corner</title>
 
     
-    <link href="/css/nucleus.css?1592519179" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1592519179" rel="stylesheet">
-    <link href="/css/hybrid.css?1592519179" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1592519179" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1592519179" rel="stylesheet">
-    <link href="/css/auto-complete.css?1592519179" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1592519179" rel="stylesheet">
-    <link href="/css/theme.css?1592519179" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1592519179" rel="stylesheet">
+    <link href="/css/nucleus.css?1592519389" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1592519389" rel="stylesheet">
+    <link href="/css/hybrid.css?1592519389" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1592519389" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1592519389" rel="stylesheet">
+    <link href="/css/auto-complete.css?1592519389" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1592519389" rel="stylesheet">
+    <link href="/css/theme.css?1592519389" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1592519389" rel="stylesheet">
     
-    <link href="/css/theme-erovia.css?1592519179" rel="stylesheet">
+    <link href="/css/theme-erovia.css?1592519389" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1592519179"></script>
+    <script src="/js/jquery-3.3.1.min.js?1592519389"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1592519179"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1592519179"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1592519389"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1592519389"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1592519179"></script>
+<script type="text/javascript" src="/js/search.js?1592519389"></script>
 
     
   </div>
@@ -131,7 +131,7 @@
  
   
     
-      <li data-nav-id="/posts/workflow/" title="My personal workflow with QMK" class="dd-item ">
+      <li data-nav-id="/posts/workflow/" title="My personal workflow for QMK" class="dd-item ">
         <a href="/posts/workflow/">
         Workflow
         
@@ -358,18 +358,18 @@ But <strong>you</strong> can help.</p>
 <ol>
 <li>
 <p>Make sure you have the upstream QMK repo available as a remote:</p>
-<pre><code>[erovia@ws]$ git remote -v
-github  git@github.com:Erovia/qmk_firmware.git (fetch)
-github  git@github.com:Erovia/qmk_firmware.git (push)
-origin  https://github.com/qmk/qmk_firmware.git (fetch)
-origin  https://github.com/qmk/qmk_firmware.git (push)
-</code></pre><p>If not, run <code>git remote add origin https://github.com/qmk/qmk_firmware.git</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git remote -v
+github  git@github.com:Erovia/qmk_firmware.git <span style="color:#f92672">(</span>fetch<span style="color:#f92672">)</span>
+github  git@github.com:Erovia/qmk_firmware.git <span style="color:#f92672">(</span>push<span style="color:#f92672">)</span>
+origin  https://github.com/qmk/qmk_firmware.git <span style="color:#f92672">(</span>fetch<span style="color:#f92672">)</span>
+origin  https://github.com/qmk/qmk_firmware.git <span style="color:#f92672">(</span>push<span style="color:#f92672">)</span>
+</code></pre></div><p>If not, run <code>git remote add origin https://github.com/qmk/qmk_firmware.git</code>.</p>
 </li>
 <li>
 <p>Check the number of the PR. It&rsquo;s the numbers after the title, like <code>#1234</code></p>
-<pre><code>[erovia@ws]$ git fetch origin pull/1234/head:review/1234
-[erovia@ws]$ git checkout review/1234
-</code></pre></li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git fetch origin pull/1234/head:review/1234
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git checkout review/1234
+</code></pre></div></li>
 </ol>
 
 <div class="notices note" ><p>You can call the local branch anything you like, I just usally call them <code>review/&lt;number&gt;</code> so I know what it was for even later.</p>
@@ -378,13 +378,13 @@ origin  https://github.com/qmk/qmk_firmware.git (push)
 <ol>
 <li>
 <p>Use the feature, rebase it on the <code>master</code> branch, try to break it</p>
-<pre><code>// Run from the feature branch
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">// Run from the feature branch
 // This will place the changes in the current branch on top of the master branch
-[erovia@ws]$ git rebase master
-</code></pre><pre><code>// Once you are done
-[erovia@ws]$ git checkout master
-[erovia@ws]$ git branch -D review/1234
-</code></pre></li>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git rebase master
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">// Once you are <span style="color:#66d9ef">done</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git checkout master
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git branch -D review/1234
+</code></pre></div></li>
 <li>
 <p>Add your experiences to the PR.</p>
 <p>There is a tab called &ldquo;Files changed&rdquo;, you can suggest changes there or approve the PR.</p>
@@ -544,19 +544,19 @@ origin  https://github.com/qmk/qmk_firmware.git (push)
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1592519179"></script>
-    <script src="/js/perfect-scrollbar.min.js?1592519179"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1592519179"></script>
-    <script src="/js/jquery.sticky.js?1592519179"></script>
-    <script src="/js/featherlight.min.js?1592519179"></script>
-    <script src="/js/highlight.pack.js?1592519179"></script>
+    <script src="/js/clipboard.min.js?1592519389"></script>
+    <script src="/js/perfect-scrollbar.min.js?1592519389"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1592519389"></script>
+    <script src="/js/jquery.sticky.js?1592519389"></script>
+    <script src="/js/featherlight.min.js?1592519389"></script>
+    <script src="/js/highlight.pack.js?1592519389"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1592519179"></script>
-    <script src="/js/learn.js?1592519179"></script>
-    <script src="/js/hugo-learn.js?1592519179"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1592519389"></script>
+    <script src="/js/learn.js?1592519389"></script>
+    <script src="/js/hugo-learn.js?1592519389"></script>
 
-    <link href="/mermaid/mermaid.css?1592519179" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1592519179"></script>
+    <link href="/mermaid/mermaid.css?1592519389" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1592519389"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
