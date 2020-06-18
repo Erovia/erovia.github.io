@@ -11,6 +11,20 @@
     
     
     <item>
+      <title>My personal workflow with QMK</title>
+      <link>/posts/workflow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/workflow/</guid>
+      <description>Let&amp;rsquo;s be honest, git can be intimidating.
+While it&amp;rsquo;s true that git is an extremely powerful tool, most users can get by with only using a handful of subcommands.
+I recommend the book Pro Git for everyone really interesed in git.
+So, let&amp;rsquo;s see how I usually handle my QMK stuff, while keeping them up-to-date, too.
+Every command need to be executed from your qmk_firmware directory!
+ Setting things up This part you only need to do once.</description>
+    </item>
+    
+    <item>
       <title>Testing Pull Requests</title>
       <link>/posts/testing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

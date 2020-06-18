@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon" />
 
-    <title>Testing Pull Requests :: Erovia&#39;s QMK Corner</title>
+    <title>My personal workflow with QMK :: Erovia&#39;s QMK Corner</title>
 
     
     <link href="/css/nucleus.css?1592519179" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/posts/testing/">
+  <body class="" data-url="/posts/workflow/">
     <nav id="sidebar" class="">
 
 
@@ -131,7 +131,7 @@
  
   
     
-      <li data-nav-id="/posts/workflow/" title="My personal workflow with QMK" class="dd-item ">
+      <li data-nav-id="/posts/workflow/" title="My personal workflow with QMK" class="dd-item active">
         <a href="/posts/workflow/">
         Workflow
         
@@ -152,7 +152,7 @@
  
   
     
-      <li data-nav-id="/posts/testing/" title="Testing Pull Requests" class="dd-item active">
+      <li data-nav-id="/posts/testing/" title="Testing Pull Requests" class="dd-item ">
         <a href="/posts/testing/">
         Testing
         
@@ -271,7 +271,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/Erovia/corner/tree/master/content/posts/testing.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/Erovia/corner/tree/master/content/posts/workflow.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -302,7 +302,7 @@
             
           
           
-            <a href='/'></a> > <a href='/posts/'>Posts</a> > Testing Pull Requests
+            <a href='/'></a> > <a href='/posts/'>Posts</a> > My personal workflow with QMK
           
         
           
@@ -319,8 +319,8 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#why">Why?</a></li>
-        <li><a href="#how">How?</a></li>
+        <li><a href="#setting-things-up">Setting things up</a></li>
+        <li><a href="#working-on-your-stuff">Working on your stuff</a></li>
       </ul>
     </li>
   </ul>
@@ -340,56 +340,71 @@
           
             <h1>
               
-              Testing Pull Requests
+              My personal workflow with QMK
             </h1>
           
 
         
 
 
-<h3 id="why">Why?</h3>
-<p>Let&rsquo;s face it, testing new features, bug fixes, etc is time consuming.<br>
-But <strong>you</strong> can help.</p>
-<p>While it&rsquo;s true that ultimately the <a href="https://github.com/orgs/qmk/people">Collaborators</a> decide on things, any feedback is greatly appreciated and can help the whole project move forward.</p>
-<p>Knowing how to test PRs also allows you to use the stuff in them even before they get merged.</p>
-<h3 id="how">How?</h3>
-<p>It&rsquo;s actually quite easy, but assuming you are familiar with <code>git</code> and how its branching works at the basic level.</p>
-<p>There are also multiple ways to do this (as is usual with <code>git</code>), this is just my workflow</p>
-<ol>
-<li>
-<p>Make sure you have the upstream QMK repo available as a remote:</p>
-<pre><code>[erovia@ws]$ git remote -v
-github  git@github.com:Erovia/qmk_firmware.git (fetch)
-github  git@github.com:Erovia/qmk_firmware.git (push)
-origin  https://github.com/qmk/qmk_firmware.git (fetch)
-origin  https://github.com/qmk/qmk_firmware.git (push)
-</code></pre><p>If not, run <code>git remote add origin https://github.com/qmk/qmk_firmware.git</code>.</p>
-</li>
-<li>
-<p>Check the number of the PR. It&rsquo;s the numbers after the title, like <code>#1234</code></p>
-<pre><code>[erovia@ws]$ git fetch origin pull/1234/head:review/1234
-[erovia@ws]$ git checkout review/1234
-</code></pre></li>
-</ol>
+<p>Let&rsquo;s be honest, <code>git</code> can be intimidating.</p>
+<p><img src="https://imgs.xkcd.com/comics/git.png" alt="xkcd&rsquo;s take on git"></p>
+<p>While it&rsquo;s true that <code>git</code> is an extremely powerful tool, most users can get by with only using a handful of subcommands.<br>
+I recommend the book <a href="https://git-scm.com/book/en/v2">Pro Git</a> for everyone really interesed in <code>git</code>.</p>
+<p>So, let&rsquo;s see how I usually handle my QMK stuff, while keeping them up-to-date, too.</p>
 
-<div class="notices note" ><p>You can call the local branch anything you like, I just usally call them <code>review/&lt;number&gt;</code> so I know what it was for even later.</p>
+<div class="notices note" ><p>Every command need to be executed from your <code>qmk_firmware</code> directory!</p>
 </div>
 
+<h3 id="setting-things-up">Setting things up</h3>
+<p>This part you only need to do once.</p>
+<p>So, if you followed the <a href="https://docs.qmk.fm/#/newbs_getting_started">official getting started guide</a>, which you should, this should be the output of running <code>git remote -v</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git remote -v
+origin  https://github.com/qmk/qmk_firmware.git <span style="color:#f92672">(</span>fetch<span style="color:#f92672">)</span>
+origin  https://github.com/qmk/qmk_firmware.git <span style="color:#f92672">(</span>push<span style="color:#f92672">)</span>
+</code></pre></div><p>Create a personal fork of the official repo.</p>
 <ol>
-<li>
-<p>Use the feature, rebase it on the <code>master</code> branch, try to break it</p>
-<pre><code>// Run from the feature branch
-// This will place the changes in the current branch on top of the master branch
-[erovia@ws]$ git rebase master
-</code></pre><pre><code>// Once you are done
-[erovia@ws]$ git checkout master
-[erovia@ws]$ git branch -D review/1234
-</code></pre></li>
-<li>
-<p>Add your experiences to the PR.</p>
-<p>There is a tab called &ldquo;Files changed&rdquo;, you can suggest changes there or approve the PR.</p>
-</li>
+<li>Log into your Github account</li>
+<li>Go to <a href="https://github.com/qmk/qmk_firmware">https://github.com/qmk/qmk_firmware</a></li>
+<li>Click on the &ldquo;Fork&rdquo; button</li>
 </ol>
+<p>Add your fork as a remote and create a branch where you will be commiting your changes:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git remote add myfork git@github.com:&lt;your_github_username&gt;/qmk_firmware.git
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git checkout -b my_stuff -t my_fork/my_stuff
+</code></pre></div>
+<div class="notices note" ><p>You can name the remote and the branch anything you&rsquo;d like, &lsquo;myfork&rsquo; and &lsquo;my_stuff&rsquo; were just an example.</p>
+</div>
+
+<p>Check if both remotes are available:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git remote -v
+origin  https://github.com/qmk/qmk_firmware.git <span style="color:#f92672">(</span>fetch
+origin  https://github.com/qmk/qmk_firmware.git <span style="color:#f92672">(</span>push<span style="color:#f92672">)</span>
+myfork  git@github.com:Erovia/qmk_firmware.git <span style="color:#f92672">(</span>fetch<span style="color:#f92672">)</span>
+myfork  git@github.com:Erovia/qmk_firmware.git <span style="color:#f92672">(</span>push<span style="color:#f92672">)</span>
+</code></pre></div><h3 id="working-on-your-stuff">Working on your stuff</h3>
+<p>This is what I usually do on a more or less daily basis.</p>
+<h4 id="adding-things">Adding things</h4>
+<p>If you&rsquo;d like to work on your keymap/userspace/custom board.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git checkout my_stuff                                <span style="color:#75715e"># make sure I&#39;m on the personal branch</span>
+<span style="color:#75715e">#   do my magic</span>
+<span style="color:#75715e">#   you know, new keymaps and the like</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git add keyboards/example/keymaps/erovia/keymap.c    <span style="color:#75715e"># add the new/modified files to the staging area</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git commit -m <span style="color:#e6db74">&#39;My new shiny keymap&#39;</span>                  <span style="color:#75715e"># commit the changes with a nice message</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git push                                             <span style="color:#75715e"># push the changes to my Github fork</span>
+</code></pre></div>
+<div class="notices tip" ><p>You can <code>git add</code> multiple files or even whole directories and have their changes in one commit.</p>
+</div>
+
+
+<div class="notices warning" ><p>Always commit your custom stuff into your own branch(es) or there will be dragons.</p>
+</div>
+
+<h4 id="updating">Updating</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git checkout master        <span style="color:#75715e"># make sure I&#39;m on the master branch</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git pull                   <span style="color:#75715e"># update master with the new goodies</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git checkout my_stuff      <span style="color:#75715e"># go back to my personal branch</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git rebase master          <span style="color:#75715e"># rebase my stuff on top of the newly updated master</span>
+</code></pre></div><p>As long as you keep you don&rsquo;t modify things outside your keymap/userspace/custom board, this will allow you to update QMK without any difficulties.</p>
 
 
 <footer class="footline">
@@ -460,8 +475,6 @@ origin  https://github.com/qmk/qmk_firmware.git (push)
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -479,6 +492,8 @@ origin  https://github.com/qmk/qmk_firmware.git (push)
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -498,9 +513,6 @@ origin  https://github.com/qmk/qmk_firmware.git (push)
             
             
                 
-                    
-                        
-                        
                     
                 
                 
