@@ -9,7 +9,7 @@
 
     <link rel="shortcut icon" href="/images/logo.jpg" type="image/x-icon" />
 
-    <title>Small code snippets :: Erovia&#39;s QMK Corner</title>
+    <title>Contributing :: Erovia&#39;s QMK Corner</title>
 
     
     <link href="/css/nucleus.css?1592945542" rel="stylesheet">
@@ -36,7 +36,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/snippets/">
+  <body class="" data-url="/posts/contributing/">
     <nav id="sidebar" class="">
 
 
@@ -105,7 +105,7 @@
   
     
     <li data-nav-id="/posts/" title="Posts" class="dd-item 
-        
+        parent
         
         
         ">
@@ -173,7 +173,7 @@
  
   
     
-      <li data-nav-id="/posts/contributing/" title="Contributing" class="dd-item ">
+      <li data-nav-id="/posts/contributing/" title="Contributing" class="dd-item active">
         <a href="/posts/contributing/">
         Contributing
         
@@ -203,7 +203,7 @@
     
     <li data-nav-id="/snippets/" title="Small code snippets" class="dd-item 
         
-        active
+        
         
         ">
       <a href="/snippets/">
@@ -294,7 +294,7 @@ My with <i class="fas fa-heart"></i> by Erovia
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/Erovia/corner/tree/master/content/snippets/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/Erovia/corner/tree/master/content/posts/contributing.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -321,7 +321,13 @@ My with <i class="fas fa-heart"></i> by Erovia
             
           
           
-            <a href='/'></a> > Small code snippets
+            
+            
+          
+          
+            <a href='/'></a> > <a href='/posts/'>Posts</a> > Contributing
+          
+        
           
         
           
@@ -336,9 +342,9 @@ My with <i class="fas fa-heart"></i> by Erovia
   <ul>
     <li>
       <ul>
-        <li><a href="#multi-function-rotary-encoder">Multi-function rotary encoder</a></li>
-        <li><a href="#turn-on-numlock-for-a-specific-layer">Turn on Numlock for a specific layer</a></li>
-        <li><a href="#change-the-behaviour-of-one-key-by-another">Change the behaviour of one key by another</a></li>
+        <li><a href="#branch">Branch</a></li>
+        <li><a href="#open-the-pull-request-pr">Open the Pull Request (PR)</a></li>
+        <li><a href="#merge-conflicts">Merge conflicts</a></li>
       </ul>
     </li>
   </ul>
@@ -358,101 +364,83 @@ My with <i class="fas fa-heart"></i> by Erovia
           
             <h1>
               
-              Small code snippets
+              Contributing
             </h1>
           
 
         
 
 
+<p>This is a pretty basic and easy to understand workflow to work on keyboards, keymaps, features or anything in general that you <strong>intend to get merged</strong>.</p>
+<p>For things that&rsquo;s for your personal use only, check out my <a href="/posts/workflow">general workflow</a>.</p>
+<p>One of the best things about <code>git</code> is it&rsquo;s branching. It&rsquo;s fast and allows us to experiment without risking our code.</p>
+<h3 id="branch">Branch</h3>
+<p><em>when in doubt, branch</em></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git checkout master                   <span style="color:#75715e"># make sure I&#39;m on the master branch</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git pull                              <span style="color:#75715e"># making sure my local master branch is up to date</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git checkout -b new_feature           <span style="color:#75715e"># create a new branch for the new feature/keymap/keyboard</span>
+<span style="color:#75715e">#   create new stuff</span>
+<span style="color:#75715e">#   fix bugs</span>
+<span style="color:#75715e">#   write documentation</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git status                            <span style="color:#75715e"># make sure all the changes are committed</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git add file1 file2 fileN             <span style="color:#75715e"># if not, add the new/modified files to the staging area</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git commit -m <span style="color:#e6db74">&#39;Your commit message&#39;</span>   <span style="color:#75715e"># commit the changes with a nice message</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git push -u myfork new_feature        <span style="color:#75715e"># push the changes to my fork</span>
+</code></pre></div><h3 id="open-the-pull-request-pr">Open the Pull Request (PR)</h3>
+<ol>
+<li>
+<p>Go to <a href="https://www.github.com">https://www.github.com</a></p>
+</li>
+<li>
+<p>Navigate to your <code>qmk_firmware</code> fork</p>
+</li>
+<li>
+<p>Github will display a button to open a PR with your changes</p>
+</li>
+<li>
+<p>Make sure the PR is from your fork&rsquo;s <code>new_feature</code> branch to the official <code>qmk_firmware</code> repo&rsquo;s <code>master</code> branch</p>
+</li>
+<li>
+<p>Fill out the template and check in the <strong>Preview</strong> tab if it renders okay</p>
+</li>
+<li>
+<p>Submit the PR</p>
+</li>
+<li>
+<p>Wait patiently :)</p>
+</li>
+</ol>
+<h3 id="merge-conflicts">Merge conflicts</h3>
+<p>In some cases, someone else might have worked on the filed you changed. In this case a merge conflict will happen and you will be asked to resolve it.</p>
+<p>Github will display conflicts at the button of the PR page.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git checkout master                   <span style="color:#75715e"># make sure I&#39;m on the master branch</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git pull                              <span style="color:#75715e"># making sure my local master branch is up to date</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git checkout new_feature              <span style="color:#75715e"># switch to the feature branch</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git rebase master                     <span style="color:#75715e"># rebase our changes on the newly updated master</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#   git will go from commit to commit in the changes</span>
+<span style="color:#75715e">#   if a conflict is found, it will display the filenames</span>
+<span style="color:#75715e">#   open the files with and editor and look for the conflict indicators</span>
+#
+#
+<span style="color:#75715e">#   &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span>
+<span style="color:#75715e">#   the codeblock currently in master</span>
+<span style="color:#75715e">#   ======</span>
+<span style="color:#75715e">#   the same codeblock in the new_feature branch</span>
+<span style="color:#75715e">#   &gt;&gt;&gt;&gt;&gt;&gt;&gt; 38472386162057</span>
+#
+#
+<span style="color:#75715e">#   remove the line you do not want to keep plus the markers</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git add file1                         <span style="color:#75715e"># mark the file or files as fixed</span>
+<span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git rebase --continue                 <span style="color:#75715e"># continue the rebase</span>
+<span style="color:#75715e">#   the process above has to be repeated for every commit that has conflict</span>
+</code></pre></div>
+<div class="notices tip" ><p>The rebasing can be stopped at any minute with <code>git rebase --abort</code>.</p>
+</div>
 
-	<p>Here I collected some code snippets.<br>
-You can use these as pointers to implement your desired functionality.</p>
-<hr>
-<h3 id="multi-function-rotary-encoder">Multi-function rotary encoder</h3>
-<p>Change the encoder&rsquo;s behavour when it is pressed as a key.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">bool</span> secondary_function <span style="color:#f92672">=</span> false;
-
-<span style="color:#66d9ef">enum</span> custom_keycodes {
-    ENC_MODE <span style="color:#f92672">=</span> SAFE_RANGE
-};
-
-<span style="color:#75715e">// Define what encoder does depending on direction flag.
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">encoder_update_user</span>(uint8_t index, <span style="color:#66d9ef">bool</span> clockwise) {
-    <span style="color:#66d9ef">if</span> (clockwise) {
-        <span style="color:#66d9ef">if</span> (secondary_function) {
-            tap_code(KC_DOWN);
-        } <span style="color:#66d9ef">else</span> {
-            tap_code(KC_RIGHT);
-        }
-    } <span style="color:#66d9ef">else</span> {
-        <span style="color:#66d9ef">if</span> (secondary_function) {
-            tap_code(KC_UP);
-        } <span style="color:#66d9ef">else</span> {
-            tap_code(KC_LEFT);
-        }
-    }
-}
-
-<span style="color:#75715e">// When custom keycode ENC_MODE is clicked, switch encoder direction
-</span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">process_record_user</span>(uint16_t keycode, keyrecord_t <span style="color:#f92672">*</span>record) {
-  <span style="color:#66d9ef">switch</span> (keycode) {
-    <span style="color:#66d9ef">case</span> ENC_MODE:
-      <span style="color:#66d9ef">if</span> (record<span style="color:#f92672">-&gt;</span>event.pressed) {
-          secondary_function <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>secondary_function;
-      }
-      <span style="color:#66d9ef">return</span> false; <span style="color:#75715e">// Skip all further processing of this key
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
-      <span style="color:#66d9ef">return</span> true; <span style="color:#75715e">// Process all other keycodes normally
-</span><span style="color:#75715e"></span>  }
-}
-</code></pre></div><hr>
-<h3 id="turn-on-numlock-for-a-specific-layer">Turn on Numlock for a specific layer</h3>
-<p>And turn it off on other layers</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c">layer_state_t <span style="color:#a6e22e">layer_state_set_user</span>(layer_state_t state) {
-    <span style="color:#66d9ef">switch</span> (get_highest_layer(state)) {
-    <span style="color:#66d9ef">case</span> _NUM:
-        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>host_keyboard_led_state().num_lock) {
-             tap_code16(KC_NLCK);
-        }
-        <span style="color:#66d9ef">break</span>;
-    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> <span style="color:#75715e">//  for any other layers, or the default layer
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">if</span> (host_keyboard_led_state().num_lock) {
-             tap_code16(KC_NLCK);
-        }
-        <span style="color:#66d9ef">break</span>;
-    }
-  <span style="color:#66d9ef">return</span> state;
-}
-</code></pre></div><h3 id="change-the-behaviour-of-one-key-by-another">Change the behaviour of one key by another</h3>
-<p>This is really similar to the <a href="#multi-function-rotary-encoder">encoder one</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">bool</span> switcheroo <span style="color:#f92672">=</span> false;
-
-<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">process_record_user</span>(uint16_t keycode, keyrecord_t <span style="color:#f92672">*</span>record) {
-  <span style="color:#66d9ef">switch</span> (keycode) {
-    <span style="color:#66d9ef">case</span> CL_BS:
-      <span style="color:#66d9ef">if</span> (record<span style="color:#f92672">-&gt;</span>event.pressed) {
-       switcheroo <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>switcheroo; <span style="color:#75715e">// Change CapsLock into BackSpace
-</span><span style="color:#75715e"></span>      }
-      <span style="color:#66d9ef">return</span> false; <span style="color:#75715e">// Skip all further processing of this key
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">case</span> KC_CAPS:
-      <span style="color:#66d9ef">if</span> (record<span style="color:#f92672">-&gt;</span>event.pressed) {
-        <span style="color:#66d9ef">if</span> (switcheroo) {
-            tap_code(KC_CAPS);
-        } <span style="color:#66d9ef">else</span> {
-            tap_code(KC_BSPC);
-      } 
-      <span style="color:#66d9ef">return</span> true; <span style="color:#75715e">// Let QMK send the enter press/release events
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
-      <span style="color:#66d9ef">return</span> true; <span style="color:#75715e">// Process all other keycodes normally
-</span><span style="color:#75715e"></span>  }
-}
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ git push -f       <span style="color:#75715e"># push the changes to the new_feature branch on myfork, &#39;-f&#39; is needed, as history is rewritten</span>
 </code></pre></div>
 
-
-
-
-<footer class=" footline" >
+<footer class="footline">
 	
 </footer>
 
@@ -506,6 +494,7 @@ You can use these as pointers to implement your desired functionality.</p>
             
                 
                     
+                    
                 
                 
 
@@ -518,6 +507,9 @@ You can use these as pointers to implement your desired functionality.</p>
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -551,25 +543,6 @@ You can use these as pointers to implement your desired functionality.</p>
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -582,6 +555,9 @@ You can use these as pointers to implement your desired functionality.</p>
             
         
                     
+            
+        
+                    
                         
             
             
@@ -589,6 +565,22 @@ You can use these as pointers to implement your desired functionality.</p>
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -636,3 +628,4 @@ You can use these as pointers to implement your desired functionality.</p>
 
   </body>
 </html>
+

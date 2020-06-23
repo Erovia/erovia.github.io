@@ -7,16 +7,24 @@
   </url>
   
   <url>
+    <loc>/posts/workflow/</loc>
+  </url>
+  
+  <url>
+    <loc>/posts/testing/</loc>
+  </url>
+  
+  <url>
+    <loc>/posts/contributing/</loc>
+  </url>
+  
+  <url>
     <loc>/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
-    <loc>/posts/workflow/</loc>
   </url>
   
   <url>
@@ -29,10 +37,6 @@
   
   <url>
     <loc>/tags/</loc>
-  </url>
-  
-  <url>
-    <loc>/posts/testing/</loc>
   </url>
   
   <url>
