@@ -5,10 +5,6 @@
     <link>/snippets/</link>
     <description>Recent content in Small code snippets on Erovia&#39;s QMK Corner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="/snippets/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="/snippets/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

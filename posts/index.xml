@@ -5,11 +5,7 @@
     <link>/posts/</link>
     <description>Recent content in Posts on Erovia&#39;s QMK Corner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My personal workflow for QMK</title>
       <link>/posts/workflow/</link>
