@@ -21,6 +21,18 @@ Every command need to be executed from your qmk_firmware directory!
     </item>
     
     <item>
+      <title>Planck Through Hole Kit Build log</title>
+      <link>/posts/thk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/thk/</guid>
+      <description>The Planck Through Hole Kit The Planck Through Hole Kit (THK) was announced by Jack Humbert on the /r/olkb subreddit on 2018.10.01.
+The hardware was released under GPLv3 with the intention to be accessible to everyone.
+The original QMK pull request never got merged and documentation/information about the board is scarce.
+As QMK is a pretty fast-moving project, the original code for the keyboard did not build with new QMK.</description>
+    </item>
+    
+    <item>
       <title>Testing Pull Requests</title>
       <link>/posts/testing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -12,21 +12,21 @@
     <title> :: Erovia&#39;s QMK Corner</title>
 
     
-    <link href="/css/nucleus.css?1610049141" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1610049141" rel="stylesheet">
-    <link href="/css/hybrid.css?1610049141" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1610049141" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1610049141" rel="stylesheet">
-    <link href="/css/auto-complete.css?1610049141" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1610049141" rel="stylesheet">
-    <link href="/css/theme.css?1610049141" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1610049141" rel="stylesheet">
+    <link href="/css/nucleus.css?1611780521" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611780521" rel="stylesheet">
+    <link href="/css/hybrid.css?1611780521" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611780521" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611780521" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611780521" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611780521" rel="stylesheet">
+    <link href="/css/theme.css?1611780521" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611780521" rel="stylesheet">
     
-    <link href="/css/theme-erovia.css?1610049141" rel="stylesheet">
+    <link href="/css/theme-erovia.css?1611780521" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1610049141"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611780521"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1610049141"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1610049141"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611780521"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611780521"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1610049141"></script>
+<script type="text/javascript" src="/js/search.js?1611780521"></script>
 
     
   </div>
@@ -134,6 +134,27 @@
       <li data-nav-id="/posts/workflow/" title="My personal workflow for QMK" class="dd-item ">
         <a href="/posts/workflow/">
         Workflow
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/posts/thk/" title="Planck Through Hole Kit Build log" class="dd-item ">
+        <a href="/posts/thk/">
+        Planck THK
         
         </a>
     </li>
@@ -313,21 +334,18 @@ Also, this is not an exhaustive list.</p>
 
 <ol>
 <li>
-<p><a href="https://github.com/qmk/qmk_firmware/pull/8817">Adding &lsquo;c2json&rsquo; to the CLI</a></p>
-<p>This is a big one. The code is messy and I&rsquo;ll need to fix some conflicts, but this will allow us try to understand not-too-complex <code>keymap.c</code> files and do some more exciting things with them.<br>
-Like the next one.</p>
-</li>
-<li>
-<p><a href="https://github.com/qmk/qmk_firmware/pull/8353">VIA keymap creation from CLI</a></p>
-<p>The plan is to generate most of the things needed for adding VIA support with a simple command.<br>
-Ideally, only the layout information will needed to be created by hand with KLE.</p>
-</li>
-<li>
 <p><a href="https://github.com/Erovia/qmk_firmware/tree/planck_thk_revived">Reviving the Planck THK</a></p>
 <p>I first heard about this keyboard when a community member tried to flash his board and asked for help.<br>
 Sadly, the code for this board was never merged and bitrot to the point of being incompatible with modern QMK.<br>
 Trying to help, I&rsquo;ve managed to forwardport the code, so it compiled and booted. Or rather I think it booted, as according to the user it played the startup sound, but typing did not work.<br>
 I&rsquo;d like to finish the work, but further debugging will require a kit, so if you have one (preferably unbuilt), let me know. ;)</p>
+<p><strong>Update</strong>: Thanks to Jack, I got my hands on the hardware. I have it working, the code will just needs some finishing touches.
+I also plan on creating a <a href="posts/thk">build log</a>, to document everything.</p>
+</li>
+<li>
+<p><a href="https://github.com/qmk/qmk_firmware/pull/8353">VIA keymap creation from CLI</a></p>
+<p>The plan is to generate most of the things needed for adding VIA support with a simple command.<br>
+Ideally, only the layout information will needed to be created by hand with KLE.</p>
 </li>
 </ol>
 	
@@ -438,6 +456,22 @@ I&rsquo;d like to finish the work, but further debugging will require a kit, so 
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -488,19 +522,19 @@ I&rsquo;d like to finish the work, but further debugging will require a kit, so 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1610049141"></script>
-    <script src="/js/perfect-scrollbar.min.js?1610049141"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1610049141"></script>
-    <script src="/js/jquery.sticky.js?1610049141"></script>
-    <script src="/js/featherlight.min.js?1610049141"></script>
-    <script src="/js/highlight.pack.js?1610049141"></script>
+    <script src="/js/clipboard.min.js?1611780521"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611780521"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611780521"></script>
+    <script src="/js/jquery.sticky.js?1611780521"></script>
+    <script src="/js/featherlight.min.js?1611780521"></script>
+    <script src="/js/highlight.pack.js?1611780521"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1610049141"></script>
-    <script src="/js/learn.js?1610049141"></script>
-    <script src="/js/hugo-learn.js?1610049141"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611780521"></script>
+    <script src="/js/learn.js?1611780521"></script>
+    <script src="/js/hugo-learn.js?1611780521"></script>
 
-    <link href="/mermaid/mermaid.css?1610049141" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1610049141"></script>
+    <link href="/mermaid/mermaid.css?1611780521" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611780521"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
