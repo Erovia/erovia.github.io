@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.75.1" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="Erovia&#39;s QMK Corner">
 <meta name="author" content="Erovia">
 
@@ -12,21 +12,21 @@
     <title>Planck Through Hole Kit Build log :: Erovia&#39;s QMK Corner</title>
 
     
-    <link href="/css/nucleus.css?1611867259" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1611867259" rel="stylesheet">
-    <link href="/css/hybrid.css?1611867259" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1611867259" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1611867259" rel="stylesheet">
-    <link href="/css/auto-complete.css?1611867259" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1611867259" rel="stylesheet">
-    <link href="/css/theme.css?1611867259" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1611867259" rel="stylesheet">
+    <link href="/css/nucleus.css?1611941158" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611941158" rel="stylesheet">
+    <link href="/css/hybrid.css?1611941158" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611941158" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611941158" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611941158" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611941158" rel="stylesheet">
+    <link href="/css/theme.css?1611941158" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611941158" rel="stylesheet">
     
-    <link href="/css/theme-erovia.css?1611867259" rel="stylesheet">
+    <link href="/css/theme-erovia.css?1611941158" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1611867259"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611941158"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1611867259"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1611867259"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611941158"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611941158"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1611867259"></script>
+<script type="text/javascript" src="/js/search.js?1611941158"></script>
 
     
   </div>
@@ -401,8 +401,8 @@ Made with <i class="fas fa-heart"></i> by Erovia
 The <a href="https://github.com/qmk/qmk_firmware/pull/4034">original QMK pull request</a> never got merged and documentation/information about the board is scarce.<br>
 As QMK is a pretty fast-moving project, the original code for the keyboard did not build with new QMK.</p>
 <p>I first heard about this keyboard when a community member tried to flash his board and asked for help.<br>
-Sadly, I was not able to work out all the things without having access to the hardware and my abition to make it work again had to be put on hold.<br>
-Until Jack was kind enough to send my two unassembled kits.<br>
+Sadly, I was not able to work out all the things without having access to the hardware and my ambition to make it work again had to be put on hold.<br>
+Until Jack was kind enough to send me two unassembled kits.<br>
 Now I have the hardware fully working with mainline QMK so I thought I&rsquo;ll document a process of building and compiling and flashing this board.</p>
 <h3 id="hardware">Hardware</h3>
 <p>The gerber files for the PCB and the bottom case can be downloaded from <a href="https://github.com/olkb/planck_thk/releases">the OLKB GitHub</a>.<br>
@@ -622,7 +622,7 @@ I have a <a href="https://github.com/Erovia/planck_thk_usbasploader">fork, pre-c
 If everything went well, it should be recognized as an USBasp flasher.</p>
 <h3 id="firmware">Firmware</h3>
 <p>The firmware currently lives in <a href="https://github.com/Erovia/qmk_firmware/tree/planck_thk_revived">my QMK fork</a>, but I&rsquo;ll get it merged upstream, to not repeat history.<br>
-The board should be compatible with most Planck and ortho4x12/planck_mit keymaps, but I created a <code>thk</code> one, to showcase it&rsquo;s unique features.</p>
+The board should be compatible with most Planck and ortho4x12/planck_mit keymaps, but I created a <code>thk</code> one, to showcase its unique features.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#f92672">[</span>erovia@ws<span style="color:#f92672">]</span>$ qmk flash -kb planck/thk -km thk
 </code></pre></div><h3 id="case">Case</h3>
 <p><em>Soon&hellip;</em></p>
@@ -812,19 +812,19 @@ The board should be compatible with most Planck and ortho4x12/planck_mit keymaps
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1611867259"></script>
-    <script src="/js/perfect-scrollbar.min.js?1611867259"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1611867259"></script>
-    <script src="/js/jquery.sticky.js?1611867259"></script>
-    <script src="/js/featherlight.min.js?1611867259"></script>
-    <script src="/js/highlight.pack.js?1611867259"></script>
+    <script src="/js/clipboard.min.js?1611941158"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611941158"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611941158"></script>
+    <script src="/js/jquery.sticky.js?1611941158"></script>
+    <script src="/js/featherlight.min.js?1611941158"></script>
+    <script src="/js/highlight.pack.js?1611941158"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1611867259"></script>
-    <script src="/js/learn.js?1611867259"></script>
-    <script src="/js/hugo-learn.js?1611867259"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611941158"></script>
+    <script src="/js/learn.js?1611941158"></script>
+    <script src="/js/hugo-learn.js?1611941158"></script>
 
-    <link href="/mermaid/mermaid.css?1611867259" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1611867259"></script>
+    <link href="/mermaid/mermaid.css?1611941158" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611941158"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
