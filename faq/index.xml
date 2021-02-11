@@ -5,10 +5,6 @@
     <link>/faq/</link>
     <description>Recent content in Frequently Asked Questions on Erovia&#39;s QMK Corner</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="/faq/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="/faq/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
