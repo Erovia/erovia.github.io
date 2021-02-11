@@ -12,21 +12,21 @@
     <title>Small code snippets :: Erovia&#39;s QMK Corner</title>
 
     
-    <link href="/css/nucleus.css?1611780521" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1611780521" rel="stylesheet">
-    <link href="/css/hybrid.css?1611780521" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1611780521" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1611780521" rel="stylesheet">
-    <link href="/css/auto-complete.css?1611780521" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1611780521" rel="stylesheet">
-    <link href="/css/theme.css?1611780521" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1611780521" rel="stylesheet">
+    <link href="/css/nucleus.css?1611867259" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1611867259" rel="stylesheet">
+    <link href="/css/hybrid.css?1611867259" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1611867259" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1611867259" rel="stylesheet">
+    <link href="/css/auto-complete.css?1611867259" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1611867259" rel="stylesheet">
+    <link href="/css/theme.css?1611867259" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1611867259" rel="stylesheet">
     
-    <link href="/css/theme-erovia.css?1611780521" rel="stylesheet">
+    <link href="/css/theme-erovia.css?1611867259" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1611780521"></script>
+    <script src="/js/jquery-3.3.1.min.js?1611867259"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -55,14 +55,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1611780521"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1611780521"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1611867259"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1611867259"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1611780521"></script>
+<script type="text/javascript" src="/js/search.js?1611867259"></script>
 
     
   </div>
@@ -361,6 +361,7 @@ Made with <i class="fas fa-heart"></i> by Erovia
         <li><a href="#multi-function-layer-aware-rotary-encoder">Multi-function, layer-aware rotary encoder</a></li>
         <li><a href="#turn-on-numlock-for-a-specific-layer">Turn on Numlock for a specific layer</a></li>
         <li><a href="#change-the-behaviour-of-one-key-by-another">Change the behaviour of one key by another</a></li>
+        <li><a href="#use-lighting-as-timer-indicator">Use lighting as timer indicator</a></li>
       </ul>
     </li>
   </ul>
@@ -523,6 +524,39 @@ You can use these as pointers to implement your desired functionality.</p>
 </span><span style="color:#75715e"></span>    <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
       <span style="color:#66d9ef">return</span> true; <span style="color:#75715e">// Process all other keycodes normally
 </span><span style="color:#75715e"></span>  }
+}
+</code></pre></div><hr>
+<h3 id="use-lighting-as-timer-indicator">Use lighting as timer indicator</h3>
+<p>This was made for a friend as a visual indicator for a spell cooldown.<br>
+The example uses QMK&rsquo;s <a href="https://docs.qmk.fm/#/feature_backlight">Backlight</a> feature, but adapting it to RGB <a href="https://docs.qmk.fm/#/feature_rgblight">Lighting</a>/<a href="https://docs.qmk.fm/#/feature_rgb_matrix">Matrix</a> is as easy as changing the called functions.<br>
+The &ldquo;game mode&rdquo; can be turned off/on with NumLock and is triggered by <code>KC_L</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#66d9ef">static</span> uint32_t game_timer;
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> game_mode <span style="color:#f92672">=</span> false;
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">bool</span> timer_running <span style="color:#f92672">=</span> false;
+
+<span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">process_record_user</span>(uint16_t keycode, keyrecord_t <span style="color:#f92672">*</span>record) {
+  <span style="color:#66d9ef">switch</span> (keycode) {
+    <span style="color:#66d9ef">case</span> KC_NLCK:
+      <span style="color:#66d9ef">if</span> (record<span style="color:#f92672">-&gt;</span>event.pressed) {
+              game_mode <span style="color:#f92672">=</span> <span style="color:#f92672">!</span>game_mode;
+      }
+      <span style="color:#66d9ef">return</span> true;
+    <span style="color:#66d9ef">case</span> KC_L:
+      <span style="color:#66d9ef">if</span> (record<span style="color:#f92672">-&gt;</span>event.pressed <span style="color:#f92672">&amp;&amp;</span> game_mode <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">!</span>timer_running) {
+        game_timer <span style="color:#f92672">=</span> timer_read32();
+        timer_running <span style="color:#f92672">=</span> true;
+        backlight_enable();
+      }
+      <span style="color:#66d9ef">return</span> true;
+    }
+  <span style="color:#66d9ef">return</span> true;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">matrix_scan_user</span>(<span style="color:#66d9ef">void</span>) {
+  <span style="color:#66d9ef">if</span> (timer_running <span style="color:#f92672">&amp;&amp;</span> timer_elapsed32(game_timer) <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">90000</span>) {
+    timer_running <span style="color:#f92672">=</span> false;
+    backlight_disable();
+  }
 }
 </code></pre></div>
 
@@ -709,19 +743,19 @@ You can use these as pointers to implement your desired functionality.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1611780521"></script>
-    <script src="/js/perfect-scrollbar.min.js?1611780521"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1611780521"></script>
-    <script src="/js/jquery.sticky.js?1611780521"></script>
-    <script src="/js/featherlight.min.js?1611780521"></script>
-    <script src="/js/highlight.pack.js?1611780521"></script>
+    <script src="/js/clipboard.min.js?1611867259"></script>
+    <script src="/js/perfect-scrollbar.min.js?1611867259"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1611867259"></script>
+    <script src="/js/jquery.sticky.js?1611867259"></script>
+    <script src="/js/featherlight.min.js?1611867259"></script>
+    <script src="/js/highlight.pack.js?1611867259"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1611780521"></script>
-    <script src="/js/learn.js?1611780521"></script>
-    <script src="/js/hugo-learn.js?1611780521"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1611867259"></script>
+    <script src="/js/learn.js?1611867259"></script>
+    <script src="/js/hugo-learn.js?1611867259"></script>
 
-    <link href="/mermaid/mermaid.css?1611780521" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1611780521"></script>
+    <link href="/mermaid/mermaid.css?1611867259" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1611867259"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
