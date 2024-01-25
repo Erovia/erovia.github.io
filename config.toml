@@ -4,7 +4,7 @@ title = "Erovia's QMK Corner"
 theme = "hugo-theme-learn"
 
 [params]
-  editURL = "https://github.com/Erovia/corner/tree/master/content/"
+  editURL = "https://github.com/Erovia/erovia.github.io"
   author = "Erovia"
   description = "Erovia's QMK Corner"
   themeVariant = "erovia"
