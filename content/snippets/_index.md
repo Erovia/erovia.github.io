@@ -1,6 +1,6 @@
 ---
 title: "Small code snippets"
-menuTitle: "Snippets"
+linktitle: "Snippets"
 ---
 
 Here I collected some code snippets.  

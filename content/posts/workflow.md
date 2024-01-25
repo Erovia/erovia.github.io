@@ -1,5 +1,5 @@
 ---
-menuTitle: Workflow
+linktitle: Workflow
 title: My personal workflow for QMK
 weight: 5
 ---

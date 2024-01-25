@@ -1,6 +1,6 @@
 ---
 title: "Testing Pull Requests"
-menuTitle: "Testing"
+linktitle: "Testing"
 weight: 10
 ---
 

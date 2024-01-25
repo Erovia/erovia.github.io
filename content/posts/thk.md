@@ -1,6 +1,6 @@
 ---
 title: "Planck Through Hole Kit Build log"
-menuTitle: "Planck THK"
+linktitle: "Planck THK"
 weight: 10
 ---
 
